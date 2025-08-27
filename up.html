@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>up</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+     <nav class="navbar">
+    <div class="logo">MyShop</div>
+
+    <!-- Hamburger Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <ul class="nav-links">
+      <li><a href="dash.html">Profile</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="regi.html">Registration</a></li>
+      <!-- <li><a href="up.html">Update</a></li> -->
+      <li><a href="Q26.html">Product</a></li>
+         <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">Help</a></li>
+    </ul>
+  </nav>
+
+
+    <h1 class="update-title">User Data Update Page</h1>
+
+<form id="updateuser" class="update-form">
+  <label class="update-label">Name:</label>
+  <input type="text" id="name" class="update-input">
+
+  <label class="update-label">Email:</label>
+  <input type="text" id="email" class="update-input">
+
+  <label class="update-label">Mobile:</label>
+  <input type="text" id="mobile" class="update-input">
+
+  <label class="update-label">Password:</label>
+  <input type="text" id="password" class="update-input">
+
+  <input  type="submit" value="Submit" id="ashish" class="update-btn">
+  
+  <!-- <button onclick="window.location.href='Q26.html'" class="btn btn-alt">Shop</button> -->
+</form>
+
+       
+
+<button class="print-btn" onclick="print()">Print</button>
+<button class="print-btn" onclick="window.location.href='Q26.html'">GO TO SHOPING</button>
+
+<script>
+let print=()=>{
+    window.print();
+}
+let islogin=JSON.parse(localStorage.getItem("islogin"))
+console.log(islogin);
+
+let user =JSON.parse(localStorage.getItem("user",'[]'))
+document.getElementById("name").value=islogin.name;
+document.getElementById("email").value=islogin.email;
+document.getElementById("mobile").value=islogin.mobileno;
+document.getElementById("password").value=islogin.password;
+
+let ashish = document.getElementById("ashish");
+console.log(ashish)
+
+ashish.addEventListener("click", function(){
+    // event.preventDefault(); 
+    alert("DATA UPDATE HO GAYA !");
+  });
+
+
+document.getElementById("updateuser").addEventListener("submit",(a)=>{
+    a.preventDefault();
+    let updatedata={
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        mobileno:document.getElementById("mobile").value,
+        password:document.getElementById("password").value,
+        
+    }
+    user=user.map((u)=>{
+        if(islogin.email===u.email){
+            return updatedata; 
+        }
+        return u;
+
+    })
+    localStorage.setItem("user",JSON.stringify(user))
+    localStorage.setItem("islogin",JSON.stringify(updatedata))
+    window.location.href="up.html";
+
+})
+//  setTimeout(()=>{
+//      alert("ye ek bar chalta h")
+// },1000)
+// setInterval(()=>{
+//             alert("ye har 10 second me chalta h")
+//         },10000)
+
+
+
+</script>
+
+</body>
+</html>

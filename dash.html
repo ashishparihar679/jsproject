@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body class="body">
+
+    
+     <nav class="navbar">
+    <div class="logo">MyShop</div>
+
+    <!-- Hamburger Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <ul class="nav-links">
+      <!-- <li><a href="dash.html">Profile</a></li> -->
+      <li><a href="login.html">Login</a></li>
+      <li><a href="regi.html">Registration</a></li>
+      <li><a href="up.html">Update</a></li>
+      <li><a href="Q26.html">Product</a></li>
+         <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">Help</a></li>
+    </ul>
+  </nav>
+
+
+    <div class="container">
+        <h1 class="title">User Profile in Dashboard</h1>
+
+        <div id="data" class="profile"></div>
+
+        <div class="btn-group">
+            <button onclick="userlogout()" class="btn">Log Out</button>
+            <button onclick="window.location.href='up.html'" class="btn btn-alt">Update</button>
+            <button onclick="window.location.href='Q26.html'" class="btn btn-alt">Shop</button>
+        </div>
+    </div>
+
+    <script>
+        let islogin=JSON.parse(localStorage.getItem("islogin"));
+        let data=document.getElementById("data")
+
+        if(islogin){
+            data.innerHTML=`
+                <p class="profile-item"><strong>Name:</strong> ${islogin.name}</p>
+                <p class="profile-item"><strong>Email:</strong> ${islogin.email}</p>
+                <p class="profile-item"><strong>Mobile:</strong> ${islogin.mobileno}</p>
+                <p class="profile-item"><strong>Password:</strong> ${islogin.password}</p>
+            `
+        } else {
+            window.location.href="login.html";
+        }
+
+        const userlogout=()=>{
+            localStorage.removeItem("islogin");
+            window.location.href="login.html";
+        }
+    </script>
+</body>
+</html>

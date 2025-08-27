@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body class="body">
+
+    
+     <nav class="navbar">
+    <div class="logo">MyShop</div>
+
+    <!-- Hamburger Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">☰</label>
+
+    <ul class="nav-links">
+      <!-- <li><a href="dash.html">Profile</a></li> -->
+      <!-- <li><a href="login.html">Login</a></li> -->
+      <li><a href="regi.html">Registration</a></li>
+      <!-- <li><a href="up.html">Update</a></li> -->
+      <!-- <li><a href="Q26_product.js">Product</a></li> -->
+          <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">Help</a></li>
+    </ul>
+  </nav>
+
+
+    <div class="container">
+        <h1 class="title">Login Page</h1>
+
+        <form class="form" id="form">
+            <label class="label">Email:</label>
+            <input type="text" class="input" id="con_email">
+
+            <label class="label">Password:</label>
+            <input type="text" class="input" id="con_pass">
+
+            <input type="submit" value="Login" class="btn">
+        </form>
+
+        <div class="invalid" id="invalid"></div>
+
+        <p class="info">Agar aap new user h to yaha click kare</p>
+        <button class="btn btn-login" id="nextBtn">Registration</button>
+    </div>
+
+    <script>
+        let user = JSON.parse(localStorage.getItem("user")||"[]")
+        let from = document.getElementById("form");
+        let invalid = document.getElementById("invalid");
+
+        from.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            let email = document.getElementById("con_email").value 
+            let password = document.getElementById("con_pass").value 
+
+            let founduser = user.find(e=>e.email===email && e.password===password);
+            if(founduser){
+                localStorage.setItem("islogin",JSON.stringify(founduser))
+                window.location.href="./dash.html"
+            }
+            else{
+                invalid.innerHTML="<p class='error-text'>Invalid user ❌</p>";
+            }
+        });
+
+        document.getElementById("nextBtn").addEventListener("click", function() {
+            window.location.href = "./regi.html";
+        });
+    </script>
+</body>
+</html>
