@@ -1,0 +1,218 @@
+/* ======== INDEX CSS Page Styles ======== */
+
+:root {
+  --primary: #ff6b6b;
+  --secondary: #4f46e5;
+  --bg: #0f1724;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --text-light: #e6eef6;
+  --muted: #a8b2c1;
+  --radius: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #0b1220, #1a1f38);
+  color: var(--text-light);
+  background-attachment: fixed;
+}
+
+/* ----------- Main Section ----------- */
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 80px 20px;
+   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+/* ----------- Access Card ----------- */
+
+.access-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 40px 50px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.access-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.access-card h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* ----------- Buttons ----------- */
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), #ff8585);
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(255, 107, 107, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #ff4b4b, #ff7070);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ----------- Separator & Guest Link ----------- */
+
+.separator {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.separator span {
+  background: var(--bg);
+  padding: 0 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.separator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%);
+}
+
+.guest-link {
+  display: inline-block;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.guest-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ----------- Feature Block ----------- */
+
+.feature-block {
+  background: var(--card-bg);
+  padding: 40px 50px;
+  border-radius: var(--radius);
+  width: 350px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.feature-block h3 {
+  color: var(--secondary);
+  margin-bottom: 15px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.feature-block ul {
+  list-style: none;
+}
+
+.feature-block li {
+  margin: 12px 0;
+  font-size: 16px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+
+.feature-block li:hover {
+  transform: translateX(5px);
+  color: var(--primary);
+}
+
+/* ----------- Footer ----------- */
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.3);
+  margin-top: auto;
+}
+
+/* ----------- Responsive ----------- */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+  }
+
+  .access-card,
+  .feature-block {
+    width: 90%;
+  }
+
+  .access-card h1 {
+    font-size: 22px;
+  }
+}

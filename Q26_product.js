@@ -51,19 +51,19 @@ let cloth = [
     id: 9,
     img: "image/shoes.jpg",
     desc: "Running Shoes",
-    price: 1800,
+    price: 200,
   },
   {
     id: 10,
     img: "image/sliper.jpg",
     desc: "Casual Slippers",
-    price: 300,
+    price: 100,
   },
   {
     id: 11,
     img: "image/speaker.jpg",
     desc: "Bluetooth Speaker",
-    price: 2200,
+    price: 50,
   },
   {
     id: 12,
@@ -123,7 +123,7 @@ let cloth = [
     id: 21,
     img: "image/led.jpg",
     desc: "LED Light",
-    price: 650,
+    price: 1,
   },
    {
     id: 22,
@@ -134,7 +134,7 @@ let cloth = [
     id: 23,
     img: "image/tablet.jpg",
     desc: "Android Tablet",
-    price: 12000,
+    price: 100,
   }, {
     id: 24,
     img: "image/pufium.jpg",
