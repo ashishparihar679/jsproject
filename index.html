@@ -38,9 +38,13 @@
           </p>
 
           <div class="button-group">
-            <button class="btn btn-primary"><a href="regi.html">REGISTER HERE</a></button>
+            <button class="btn btn-primary">
+              <a href="regi.html">REGISTER HERE</a>
+            </button>
 
-            <button class="btn btn-secondary"><a href="login.html">LOGIN HERE</a></button>
+            <button class="btn btn-secondary">
+              <a href="login.html">LOGIN HERE</a>
+            </button>
             <!-- <button class="c1"></button> -->
           </div>
 
@@ -61,9 +65,30 @@
         </div>
       </main>
 
+      <section>
+        <h1 id="b1">SHOP NOW</h1>
+        <h2 id="b2">OUR PRODUCTS</h2>
+        <div id="cloth" onclick="checkLogin()"></div>
+      </section>
+
       <footer class="footer">
         &copy; 2025 ShopFusion. All rights reserved.
       </footer>
     </div>
+    <script src="Q26a.js" type="module"></script>
+    <script>
+      function checkLogin() {
+        alert("Pehle login kare!");
+        let userChoice = confirm("Kya aap login page par jana chahte ho?");
+
+        if (userChoice) {
+          // YES → redirect
+          window.location.href = "login.html";
+        } else {
+          // NO → kuch mat karo
+          alert("Aapne cancel kar diya.");
+        }
+      }
+    </script>
   </body>
 </html>

@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>regi</title>
-    <link rel="stylesheet" href="style1.css">
-</head>
-<body class="body">
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body class="body">
+    <nav class="navbar">
+      <div class="logo">MyShop</div>
 
-     <nav class="navbar">
-    <div class="logo">MyShop</div>
+      <!-- Hamburger Checkbox -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">☰</label>
 
-    <!-- Hamburger Checkbox -->
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">☰</label>
-
-    <ul class="nav-links">
-      <!-- <li><a href="dash.html">Profile</a></li> -->
-      <li><a href="index.html">Home</a></li>
-      <li><a href="login.html">Login</a></li>
-      <!-- <li><a href="#">Registration</a></li> -->
-      <!-- <li><a href="up.html">Update</a></li> -->
-      <!-- <li><a href="Q26_product.js">Product</a></li> -->
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
-      <li><a href="">Help</a></li>
-    </ul>
-  </nav>
+      <ul class="nav-links">
+        <!-- <li><a href="dash.html">Profile</a></li> -->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <!-- <li><a href="#">Registration</a></li> -->
+        <!-- <li><a href="up.html">Update</a></li> -->
+        <!-- <li><a href="Q26_product.js">Product</a></li> -->
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">Help</a></li>
+      </ul>
+    </nav>
 
     <div class="container">
-        <h1 class="title">User Registration</h1>
+      <h1 class="title">User Registration</h1>
 
-        <form class="form">
-            <label class="label">Name:</label>
-            <input type="text" class="input" id="name">
+      <form class="form">
+        <label class="label">Name:</label>
+        <input type="text" class="input" id="name" />
 
-            <label class="label">Email:</label>
-            <input type="text" class="input" id="email">
+        <label class="label">Email:</label>
+        <input type="text" class="input" id="email" />
 
-            <label class="label">Mobile No:</label>
-            <input type="text" class="input" id="mobileno">
+        <label class="label">Mobile No:</label>
+        <input type="text" class="input" id="mobileno" />
 
-            <label class="label">Password:</label>
-            <input type="text" class="input" id="password">
+        <label class="label">Password:</label>
+        <input type="text" class="input" id="password" />
 
-            <input type="submit" value="SIGNUP" class="btn">
-        </form>
+        <input type="submit" value="SIGNUP" class="btn" />
+      </form>
 
-        <p class="info">Agar apke pass alredy account h to yaha click kare</p>
-        <button class="btn btn-login" id="log_Btn">Login Page</button>
+      <p class="info">Agar apke pass alredy account h to yaha click kare</p>
+      <button class="btn btn-login" id="log_Btn">Login Page</button>
     </div>
+    <section>
+      <h1 id="b1">SHOP NOW</h1>
+      <h2 id="b2">OUR PRODUCTS</h2>
+      <div id="cloth" onclick="checkLogin()"></div>
+    </section>
+    <script src="Q26a.js" type="module"></script>
 
-<script>
-    let user=JSON.parse(localStorage.getItem("user")||"[]");
+    <script>
+      let user = JSON.parse(localStorage.getItem("user") || "[]");
 
-    const userdata=(e)=>{
+      const userdata = (e) => {
         e.preventDefault();
-        let name=document.getElementById('name').value;
-        let email=document.getElementById('email').value;
-        let mobileno=document.getElementById('mobileno').value;
-        let password=document.getElementById('password').value;
-        let z={name,email,mobileno,password};
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let mobileno = document.getElementById("mobileno").value;
+        let password = document.getElementById("password").value;
+        let z = { name, email, mobileno, password };
         user.push(z);
-        localStorage.setItem("user",JSON.stringify(user));
-        window.location.href="login.html";
-    }
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.href = "login.html";
+      };
 
-    document.addEventListener("DOMContentLoaded",()=>{
-        document.querySelector(".form").addEventListener("submit",userdata)
-    })
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".form").addEventListener("submit", userdata);
+      });
 
-    document.getElementById("log_Btn").addEventListener("click", function() {
+      document.getElementById("log_Btn").addEventListener("click", function () {
         window.location.href = "./login.html";
-    });
-</script>
-</body>
+      });
+
+      function checkLogin() {
+        alert("Pehle login kare!");
+        let userChoice = confirm("Kya aap login page par jana chahte ho?");
+
+        if (userChoice) {
+          // YES → redirect
+          window.location.href = "login.html";
+        } else {
+          // NO → kuch mat karo
+          alert("Aapne cancel kar diya.");
+        }
+      }
+    </script>
+  </body>
 </html>

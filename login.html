@@ -44,6 +44,14 @@
       <p class="info">Agar aap new user h to yaha click kare</p>
       <button class="btn btn-login" id="nextBtn">Registration</button>
     </div>
+     <section>
+        <h1 id="b1">SHOP NOW</h1>
+        <h2 id="b2">OUR PRODUCTS</h2>
+        <div id="cloth" onclick="checkLogin()"></div>
+      </section>
+
+      
+    <script src="Q26a.js" type="module"></script>
 
     <script>
       let user = JSON.parse(localStorage.getItem("user") || "[]");
@@ -69,6 +77,19 @@
       document.getElementById("nextBtn").addEventListener("click", function () {
         window.location.href = "./regi.html";
       });
+
+
+       function checkLogin() {
+    alert("Pehle login kare!");let userChoice = confirm("Kya aap login page par jana chahte ho?");
+
+    if (userChoice) {
+      // YES → redirect
+      window.location.href = "login.html";
+    } else {
+      // NO → kuch mat karo
+      alert("Aapne cancel kar diya.");
+    }
+  }
     </script>
   </body>
 </html>
